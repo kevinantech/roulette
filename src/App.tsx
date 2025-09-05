@@ -13,7 +13,7 @@ const SpinWheel: React.FC = () => {
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
   const [result, setResult] = useState<number | null>(null);
-  const [forcedNumber, setForcedNumber] = useState<number | null>(null);
+  const [forcedNumber, setForcedNumber] = useState<number | null>(72);
 
   /**
    * Genera un número aleatorio entre min y max
@@ -52,6 +52,7 @@ const SpinWheel: React.FC = () => {
     setTimeout(() => {
       setSpinning(false);
       setResult(number);
+      if (forcedNumber) setForcedNumber(null);
     }, SPIN_DURATION + 100);
   };
 
